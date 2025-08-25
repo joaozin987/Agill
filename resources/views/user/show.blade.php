@@ -9,7 +9,7 @@
       <span class="" style="font-family: 'sans-serif'; font-size:20px">Vizualizar Usuários</span>
    <span class="ms-auto d-sm-flex flex-row gap-2">
      
-    
+     <a href="{{ route('user.index') }}"  class="btn btn-warning btn-sm">Listar</a>
       <a href="{{ route('user.show', ['user' => $user->id]) }}"  class="btn btn-warning btn-sm">Vizualizar</a>
         <a href="{{ route('user.edit', ['user' => $user->id]) }}" class="btn btn-info btn-sm">Editar</a>
 
