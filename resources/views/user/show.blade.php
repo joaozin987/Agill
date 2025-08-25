@@ -1,28 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-     <a href="{{ route('user.index') }}">Listar user</a>   
-      <a href="{{ route('user.edit', ['user' => $user->id]) }}">Editar user</a>   
+@extends('layouts.admin')
+@section('content')
 
-    <h1>Vizualizar usuario</h1>
 
-        
-    @if (session('success'))
-    <p style="color: green; font-size: 20px; font-family:serif;">
-        {{ session('success') }}
-    </p>
-    @endif
+<div class="card mb-4 mt-5 border-light shadow">
+  
+     <div class="card-header hstack gap-2">
+      
+      <span class="" style="font-family: 'sans-serif'; font-size:20px">Vizualizar Usuários</span>
+   <span class="ms-auto d-sm-flex flex-row gap-2">
+     
+    
+      <a href="{{ route('user.show', ['user' => $user->id]) }}"  class="btn btn-warning btn-sm">Vizualizar</a>
+        <a href="{{ route('user.edit', ['user' => $user->id]) }}" class="btn btn-info btn-sm">Editar</a>
 
-    Id: {{ $user->id }} <br> <hr>
-    Nome: {{ $user->name }} <br> <hr>
-    E-mail: {{ $user->email }} <br> <hr>
-    Telefone: {{ $user->telefone }} <br> <hr>
-    Endereço: {{ $user->endereco }} <br> <hr>
-</body>
-</html>
+        <form method="POST" action="{{ route('user.destroy', ['user' => $user->id]) }}" class="d-inline">
+            @csrf
+            @method('delete')
+            <button type="submit" onclick="return confirm('tem certeza que deseja apagar?')" class="btn btn-danger  btn-sm">Deletar</button>
+        </form>
+      </td>
+    </tr>
+    </div>
+ <div class="card-body ">
+     
+    <x-alert />
+         
+      <dl class="row">
+      <dt class="col-sm-3">Id</dt>
+      <dd class="col-sm-9">{{ $user->id }}</dd>
+     <dt class="col-sm-3">Nome</dt>
+      <dd class="col-sm-9">{{ $user->name }}</dd>
+       <dt class="col-sm-3">  E-mail</dt>
+      <dd class="col-sm-9">{{ $user->email }}</dd>
+       <dt class="col-sm-3">Telefone</dt>
+      <dd class="col-sm-9">{{ $user->telefone }}</dd>
+       <dt class="col-sm-3">Endereço</dt>
+      <dd class="col-sm-9">{{ $user->endereco }}</dd>  
+    </dl>
+
+           
+</span>
+   
+ </div>
+</div>
+@endsection

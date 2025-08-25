@@ -1,38 +1,56 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Agill</title>
-</head>
-<body>
-    <a href="{{ route('user.create') }}">Cadastrar user</a>   
+@extends('layouts.admin')
 
-    <h1>Listar users</h1>
+@section('content')
+
+<div class="card mb-4 mt-5 border-light shadow">
+     <div class="card-header hstack gap-2">
+        <span class="text-3xl">Listar users</span>
+   <span class="ms-auto">
+     <a href="{{ route('user.create') }}" class="btn btn-success">Cadastrar user</a> 
+       
+   </span>
+  </div>
     
-    @if (session('success'))
-    <p style="color: green;">
-        {{ session('success') }}
-    </p>
-    @endif
+   <div class="card-body">
+    <x-alert />
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Email</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Endereco</th>
+    </tr>
+   </thead>
+  <tbody>
    
     @forelse ($users as $user)
-     Id: {{ $user->id }} <br> <hr>
-     Nome: {{ $user->name }} <br> <hr>
-     E-mail: {{ $user->email }} <br> <hr> 
-     Telefone: {{ $user->telefone }} <br> <hr>
-     Endereço: {{ $user->endereco }} <br> <hr>
-        <a href="{{ route('user.show', ['user' => $user->id]) }}">Vizualizar</a>
-        <a href="{{ route('user.edit', ['user' => $user->id]) }}">Editar</a>
 
-        <form method="POST" action="{{ route('user.destroy', ['user' => $user->id]) }}">
+     <tr>
+      <th>{{ $user->id }}</th>
+      <td>{{ $user->name }}</td>
+      <td>{{ $user->email }}</td>
+      <td> {{ $user->telefone }}</td>
+      <td> {{ $user->endereco }}</td>
+      <td>
+           <a href="{{ route('user.show', ['user' => $user->id]) }}"  class="btn btn-warning btn-sm">Vizualizar</a>
+        <a href="{{ route('user.edit', ['user' => $user->id]) }}" class="btn btn-info btn-sm">Editar</a>
+
+        <form method="POST" action="{{ route('user.destroy', ['user' => $user->id]) }}" class="d-inline">
             @csrf
             @method('delete')
-            <button type="submit" onclick="return confirm('tem certeza que deseja apagar?')">Deletar</button>
+            <button type="submit" onclick="return confirm('tem certeza que deseja apagar?')" class="btn btn-danger  btn-sm">Deletar</button>
         </form>
-         @empty
+      </td>
+    </tr>
 
+  
+         @empty
     @endforelse
-</body>
-</html>
+   </table>
+</tbody>
+   </div>
+</div>
+@endsection
+   
