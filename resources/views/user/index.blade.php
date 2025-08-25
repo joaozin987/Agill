@@ -3,17 +3,18 @@
 @section('content')
 
 <div class="card my-4 border-light shadow">
-    <div class="card-header d-flex justify-content-between align-items-center">
-        <h5 class="mb-0 fs-4">Listar Usuários</h5>
+    <div class="card-header d-flex flex-wrap justify-content-between align-items-center">
+        <h5 class="mb-2 mb-md-0 fs-4">Listar Usuários</h5>
         <a href="{{ route('user.create') }}" class="btn btn-success">Cadastrar Usuário</a>
     </div>
 
     <div class="card-body">
-      <div class="d-flex justify-content-end mb-3">
-    <a href="{{ route('user.index', ['status' => 'ativos']) }}" class="btn btn-sm btn-outline-success me-2">Ver Ativos</a>
-    <a href="{{ route('user.index', ['status' => 'inativos']) }}" class="btn btn-sm btn-outline-danger me-2">Ver Inativos</a>
-    <a href="{{ route('user.index', ['status' => 'todos']) }}" class="btn btn-sm btn-outline-secondary">Ver Todos</a>
-    </div>
+        <div class="d-flex justify-content-end mb-3">
+            <a href="{{ route('user.index', ['status' => 'ativos']) }}" class="btn btn-sm btn-outline-success me-2">Ver Ativos</a>
+            <a href="{{ route('user.index', ['status' => 'inativos']) }}" class="btn btn-sm btn-outline-danger me-2">Ver Inativos</a>
+            <a href="{{ route('user.index', ['status' => 'todos']) }}" class="btn btn-sm btn-outline-secondary">Ver Todos</a>
+        </div>
+        
         <x-alert />
 
         <div class="table-responsive">
@@ -45,24 +46,34 @@
                                 @endif
                             </td>
                             <td>
-                                <form action="{{ route('user.toggleStatus', $user->id) }}" method="POST" class="d-inline">
-                                    @csrf
-                                    @method('PATCH')
-                                    @if ($user->ativo)
-                                        <button type="submit" class="btn btn-warning btn-sm" title="Inativar">Inativar</button>
-                                    @else
-                                        <button type="submit" class="btn btn-success btn-sm" title="Ativar">Ativar</button>
-                                    @endif
-                                </form>
+                                <div class="btn-group">
+                                    <form action="{{ route('user.toggleStatus', $user->id) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('PATCH')
+                                        @if ($user->ativo)
+                                            <button type="submit" class="btn btn-warning btn-sm" title="Inativar">Inativar</button>
+                                        @else
+                                            <button type="submit" class="btn btn-success btn-sm" title="Ativar">Ativar</button>
+                                        @endif
+                                    </form>
 
-                                <a href="{{ route('user.show', $user->id) }}" class="btn btn-info btn-sm" title="Visualizar">Visualizar</a>
-                                <a href="{{ route('user.edit', $user->id) }}" class="btn btn-primary btn-sm" title="Editar">Editar</a>
+                                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="visually-hidden">Mais Ações</span>
+                                    </button>
 
-                                <form method="POST" action="{{ route('user.destroy', $user->id) }}" class="d-inline">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" onclick="return confirm('Tem certeza que deseja apagar?')" class="btn btn-danger btn-sm" title="Apagar">Apagar</button>
-                                </form>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{{ route('user.show', $user->id) }}">Visualizar</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('user.edit', $user->id) }}">Editar</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li>
+                                            <form method="POST" action="{{ route('user.destroy', $user->id) }}" onsubmit="return confirm('Tem certeza que deseja apagar?')">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class="dropdown-item text-danger">Apagar</button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
                             </td>
                         </tr>
                     @empty
