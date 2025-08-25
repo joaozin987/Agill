@@ -9,9 +9,18 @@ use Iluminate\Http\RedirectResponse;
 
 class UserController extends Controller
 {
-    public function index(){
-        
-        $users = User::orderByDesc('id')->get();
+    public function index(Request $request){
+       $status = $request->query('status', 'ativos');
+       $query = User::query();
+       if ($status === 'inativos'){
+          $query->where('ativo', false);
+       } elseif($status === 'todos'){
+
+       } else {
+        $query->where('ativo', true);
+
+       }
+       $users = $query->orderByDesc('id')->paginate(10);
         return view('user.index', ['users' => $users]); 
 
     }
@@ -51,5 +60,12 @@ class UserController extends Controller
     public function destroy(User $user){
         $user->delete();
         return redirect()->route('user.index')->with('success', 'usuario deletado com sucesso');
+    }
+    public function toggleStatus(User $user) {
+        $user->ativo = !$user->ativo;
+        $user->save();
+
+        $message = $user->ativo ? 'Usuario ativado com sucesso.' : 'Usuario desativado com sucesso.';
+        return redirect()->route('user.index')->with('success', $message);
     }
 }
