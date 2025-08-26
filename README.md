@@ -1,6 +1,7 @@
 # Agill
 
 🚀 Diferenciais e Decisões de Design
+
 Além das funcionalidades básicas, foram implementadas melhorias pensando na usabilidade e na lógica de negócio de um sistema real:
 
 Listagem Segmentada: Reconhecendo que um administrador precisa de diferentes visões dos dados, a listagem foi dividida em três seções:
@@ -10,6 +11,8 @@ Pessoas Ativas: A lista principal, mostrando apenas os registros com status "Ati
 Pessoas Inativas: Uma lista separada para registros desativados, permitindo uma fácil auditoria ou reativação, para mudar o estado de pessoas ativa pra inativa e so clicar no botao "inativar".
 
 Todos os Cadastros: Uma visão completa com todos os registros, independentemente do status.
+
+Na Parte de Listar Usuario criei um mini menu no botao inativar que possui Vizualizar, Editar, Apagar (Acrescentei caso o Admin quisesse deletar algum usuario)
 
 
 ## 🛠️ Tecnologias Utilizadas
