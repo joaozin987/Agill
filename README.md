@@ -16,10 +16,10 @@ Todos os Cadastros: Uma visão completa com todos os registros, independentement
 
 * PHP 8.2
 * Laravel 10
-* MySQL (ou SQLite, se você manteve essa opção)
+* MySQL
 * Usei o Xamp pra manusear de maneira mais prática o Mysql
 * Vite
-* Bootstrap (ou a tecnologia de frontend que usou)
+* Bootstrap 
 
 ## 🚀 Começando (Getting Started)
 
@@ -39,7 +39,7 @@ Para rodar este projeto, você vai precisar ter as seguintes ferramentas instala
 Siga os passos abaixo para ter o projeto rodando em sua máquina:
 
 1.  **Clone o repositório:**
-    ```bash
+    ```terminal bash
     git clone [https://github.com/joaozin887/Agill.git](https://github.com/joaozin887/Agill.git)
     ```
 
