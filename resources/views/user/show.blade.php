@@ -7,13 +7,13 @@
      <div class="card-header hstack gap-2">
       
       <span class="" style="font-family: 'sans-serif'; font-size:20px">Vizualizar Usuários</span>
-   <span class="ms-auto d-sm-flex flex-row gap-2">
+   <span class="ms-auto d-sm-flex flex-row gap-3">
      
      <a href="{{ route('user.index') }}"  class="btn btn-warning btn-sm">Listar</a>
       <a href="{{ route('user.show', ['user' => $user->id]) }}"  class="btn btn-warning btn-sm">Vizualizar</a>
         <a href="{{ route('user.edit', ['user' => $user->id]) }}" class="btn btn-info btn-sm">Editar</a>
 
-        <form method="POST" action="{{ route('user.destroy', ['user' => $user->id]) }}" class="d-inline">
+        <form method="POST" action="{{ route('user.destroy', ['user' => $user->id]) }}" class="d-inline sm:mt-5">
             @csrf
             @method('delete')
             <button type="submit" onclick="return confirm('tem certeza que deseja apagar?')" class="btn btn-danger  btn-sm">Deletar</button>

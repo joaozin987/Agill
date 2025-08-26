@@ -4,7 +4,7 @@
 
 <div class="card my-4 border-light shadow">
     <div class="card-header d-flex flex-wrap justify-content-between align-items-center">
-        <h5 class="mb-2 mb-md-0 fs-4">Listar Usuários</h5>
+        <h5 class="mb-2 mb-md-0 fs-4"  style="font-family: 'sans-serif'; font-size:20px">Listar Usuários</h5>
         <a href="{{ route('user.create') }}" class="btn btn-success">Cadastrar Usuário</a>
     </div>
 

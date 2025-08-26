@@ -6,9 +6,9 @@
      <div class="card-header hstack gap-2">
       
       <span class="" style="font-family: 'sans-serif'; font-size:20px">Cadastrar Usuários</span>
-   <span class="ms-auto d-sm-flex flex-row">
-     
-      <a href="{{ route('user.index')"  class="btn btn-warning btn-sm">Vizualizar</a>
+   <span class="ms-auto d-sm-flex flex-row ">
+      <a href="{{ route('user.index') }}"  class="btn btn-warning btn-sm">Listar</a>
+      
    </span>
     </div>
     
