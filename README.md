@@ -1,65 +1,82 @@
-<<<<<<< HEAD
-# Agill
-=======
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Título do Seu Projeto (Agill)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+🚀 Diferenciais e Decisões de Design
+Além das funcionalidades básicas, foram implementadas melhorias pensando na usabilidade e na lógica de negócio de um sistema real:
 
-## About Laravel
+Listagem Segmentada: Reconhecendo que um administrador precisa de diferentes visões dos dados, a listagem foi dividida em três seções:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Pessoas Ativas: A lista principal, mostrando apenas os registros com status "Ativo".
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Pessoas Inativas: Uma lista separada para registros desativados, permitindo uma fácil auditoria ou reativação, para mudar o estado de pessoas ativa pra inativa e so clicar no botao "inativar".
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Todos os Cadastros: Uma visão completa com todos os registros, independentemente do status.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🛠️ Tecnologias Utilizadas
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+* PHP 8.2
+* Laravel 10
+* MySQL (ou SQLite, se você manteve essa opção)
+* Usei o Xamp pra manusear de maneira mais prática o Mysql
+* Vite
+* Bootstrap (ou a tecnologia de frontend que usou)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🚀 Começando (Getting Started)
 
-## Laravel Sponsors
+Estas são as instruções para configurar o projeto localmente.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### ✅ Pré-requisitos
 
-### Premium Partners
+Para rodar este projeto, você vai precisar ter as seguintes ferramentas instaladas em sua máquina:
+* [Git](https://git-scm.com)
+* [PHP 8.2](https://www.php.net/downloads.php)
+* [Composer](https://getcomposer.org)
+* [Node.js e NPM](https://nodejs.org/en/)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
 
-## Contributing
+### ⚙️ Instalação Passo a Passo
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Siga os passos abaixo para ter o projeto rodando em sua máquina:
 
-## Code of Conduct
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/joaozin887/Agill.git](https://github.com/joaozin887/Agill.git)
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+2.  **Entre na pasta do projeto:**
+    ```terminal bash
+    cd backend-agil
+    ```
 
-## Security Vulnerabilities
+3.  **Instale as dependências do PHP:**
+    ```terminal bash
+    composer install
+    ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+4.  **Instale as dependências do Node.js:**
+    ``` terminal bash
+    npm install
+    ```
 
-## License
+5.  **Gere a chave do aplicativo:**
+    ```terminal bash
+    php artisan key:generate
+    ```
+        
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
->>>>>>> 9a881de (update)
+6.  **Execute as migrations e seeders (para criar as tabelas e popular o banco):**
+    ```bash
+    php artisan migrate --seed
+    ```
+
+7.  **iniciar o frontend em um terminal diferente**
+    ```bash
+    npm run dev
+    ```
+
+8. **Inicie o servidor:**
+    ```bash
+    php artisan serve
+    ```
+    O site estará disponível em `http://127.0.0.1:8000`
+
