@@ -21,6 +21,7 @@ Na Parte de Listar Usuario criei um mini menu no botao inativar que possui Vizua
 * Laravel 10
 * MySQL
 * Usei o Xamp pra manusear de maneira mais prática o Mysql
+adicionei as informacoes do xampp no env.example 
 * Vite
 * Bootstrap 
 
