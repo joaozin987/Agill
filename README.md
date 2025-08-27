@@ -1,6 +1,7 @@
 # Agill
 
 🚀 Diferenciais e Decisões de Design
+
 Além das funcionalidades básicas, foram implementadas melhorias pensando na usabilidade e na lógica de negócio de um sistema real:
 
 Listagem Segmentada: Reconhecendo que um administrador precisa de diferentes visões dos dados, a listagem foi dividida em três seções:
@@ -11,15 +12,17 @@ Pessoas Inativas: Uma lista separada para registros desativados, permitindo uma 
 
 Todos os Cadastros: Uma visão completa com todos os registros, independentemente do status.
 
+Na Parte de Listar Usuario criei um mini menu no botao inativar que possui Vizualizar, Editar, Apagar (Acrescentei caso o Admin quisesse deletar algum usuario)
+
 
 ## 🛠️ Tecnologias Utilizadas
 
 * PHP 8.2
 * Laravel 10
-* MySQL (ou SQLite, se você manteve essa opção)
+* MySQL
 * Usei o Xamp pra manusear de maneira mais prática o Mysql
 * Vite
-* Bootstrap (ou a tecnologia de frontend que usou)
+* Bootstrap 
 
 ## 🚀 Começando (Getting Started)
 
@@ -39,7 +42,7 @@ Para rodar este projeto, você vai precisar ter as seguintes ferramentas instala
 Siga os passos abaixo para ter o projeto rodando em sua máquina:
 
 1.  **Clone o repositório:**
-    ```bash
+    ```terminal bash
     git clone [https://github.com/joaozin887/Agill.git](https://github.com/joaozin887/Agill.git)
     ```
 
